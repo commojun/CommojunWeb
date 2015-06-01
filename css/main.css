@@ -1,0 +1,79 @@
+body{
+	margin: 0px;  
+}
+  
+div#mybody{
+  	max-width: 800px;
+	background-color: white;
+  	margin: auto;
+	padding: 0.5rem;
+}
+
+
+#navi{
+  	font-size: 1rem;
+   	list-style-type: none;
+    width: 420px;
+    float : left;
+}
+
+#navi > div{
+    width : 100px;
+    height : 100px;
+    background-size : contain;
+    display: inline-block;
+}
+
+#currentContent > div{
+    width : 250px;
+    height : 250px;
+    float : right;
+    background-size : contain;
+}
+
+.welcome{
+    background-image : url("../img/level7.png");
+}
+.profile{
+    background-image : url("../img/1_lv2.png");
+}
+.work{
+    background-image : url("../img/2_lv3.png");
+}
+.contact{
+    background-image : url("../img/3_lv3.png");
+}
+.publication{
+    background-image : url("../img/4_lv2.png");
+}
+.link{
+    background-image : url("../img/5_lv2.png");
+}
+
+div#message{
+  	clear: both;
+	border-color: black;
+	border-width: 3px;
+	border-style: solid;
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+	font-size: 2rem;
+	line-height: 1.5;
+}
+  
+  
+div#block{
+  	height: 150px;
+}
+  
+.pointer{
+  	cursor: pointer;
+}
+
+TABLE {
+    border-width: 0px;
+}
+
+TD {
+    border-width: 2px; border-color: darkgreen; padding: 3px; border-style: solid;
+}

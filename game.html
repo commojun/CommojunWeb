@@ -1,0 +1,110 @@
+<div id="game" >
+<script language="javascript" type="text/javascript">
+<!-- 
+	gameContents = new Array("mayo1", "mayo2", "lifegame");
+ -->
+</script>
+<center><h3>GAME</h3>
+<h5>
+<span class="pointer" onClick="getContent('mayo1', gameContents)">Mayonnaise 1</span> / 
+<span class="pointer" onClick="getContent('mayo2', gameContents)">Mayonnaise 2</span> / 
+<span class="pointer" onClick="getContent('lifegame', gameContents)">Life game</span></h5>
+</center>
+
+
+<div align="center" id="mayo1">
+	<script language="JavaScript" type="text/javascript" src="js/mayo1.js"></script>
+	Close the all mayonnaises!<br>
+	<input type="button" value="3" id="m1_point" style="border-width:0px;background-color:white;font-size:35px;"> times left<br>
+	<img onClick="m1_change(1);" style="cursor:pointer;" src="img/m_on.jpg" title="opened" height="100" width="100" id="m1_m1">
+	<img onClick="m1_change(2);" style="cursor:pointer;" src="img/m_off.jpg" title="closed" height="100" width="100" id="m1_m2">
+	<img onClick="m1_change(3);" style="cursor:pointer;" src="img/m_on.jpg" title="opened" height="100" width="100" id="m1_m3">
+	<img onClick="m1_change(4);" style="cursor:pointer;" src="img/m_off.jpg" title="closed" height="100" width="100" id="m1_m4">
+	<img onClick="m1_change(5);" style="cursor:pointer;" src="img/m_on.jpg" title="opened" height="100" width="100" id="m1_m5">
+	<div id="m1_c_message" style="display:none;">Congratulations!</div>
+	<div id="m1_o_message" style="display:none;">FAIL...</div>
+	<div id="m1_re" style="display:none;"><br><input style="font-size:35px;" type="button" value="RETRY" onClick="m1_reset();"></div>
+	<input type="hidden" value="1" id="m1_i1">
+	<input type="hidden" value="0" id="m1_i2">
+	<input type="hidden" value="1" id="m1_i3">
+	<input type="hidden" value="0" id="m1_i4">
+	<input type="hidden" value="1" id="m1_i5">
+
+</div><!-- mayo1 -->
+
+
+<div align="center" id="mayo2">
+	Close the all mayonnaises!<br>
+	<input style="border-width:0px;background-color:white;font-size:35px;" type="button" id="m2_clicktime" value="0"> times left
+	
+
+	
+	
+	<div id="m2_game">
+	<script language="JavaScript" type="text/javascript" src="js/mayo2.js">
+	</script>
+	<script language="javascript" type="text/javascript">
+	<!--
+	m2_init();
+	 -->
+	 </script>
+	</div><!-- m2_game -->
+	
+	<div id="m2_clear" style="display:none;">
+		Congratulations!
+	</div><!-- m2_clear -->
+	
+	<div id="m2_fail" style="display:none;">
+		FAIL...
+	</div><!-- m2_fail -->
+	
+	<div id="m2_retry" style="display:none;">
+		<form>
+		LEVEL: 
+		<select name="m2_level" style="font-size:35px;">
+			<option value="5">5</option>
+			<option value="10">10</option>
+			<option value="15">15</option>
+		</select>
+		<input style="font-size:35px;" type="button" value="RETRY" onclick="m2_reset(this.form.m2_level.options[this.form.m2_level.selectedIndex].value);">
+		</form>
+	</div><!-- m2_retry -->
+
+</div><!-- mayo2 -->
+
+
+
+<div align="center" id="lifegame">
+<div align="center">The Game of Life</div>
+	
+	Generation: <input style="border-width:0px;background-color:white;font-size:35px;" type="button" id="life_ge" value="1">
+	<table style="line-height:1;" cellspacing="0" cellpadding="0" align="center" bgcolor="gainsboro">
+	<script language="JavaScript" type="text/javascript" src="js/life.js"></script>
+	<script language="javascript" type="text/javascript">
+	<!--
+		life_init();
+	// -->
+	</script>
+	</table>
+
+	<div align="center">
+		<input style="font-size:35px;" type="button" id="life_switcher" value="Start" onClick="life_switch();">
+		<input style="font-size:35px;" type="button" value="Clear" onClick="life_clear();">
+		<input style="font-size:35px;" type="button" value="Random" onClick="life_random();">
+	</div>
+	<br><br>
+	Well known objects<br>
+	<div align="left">
+	
+	<ul>
+		<li><img src="img/life_glider.png"> : glider</li>
+		<li><img src="img/life_spaceship.png"> : spaceship</li>
+		<li><img src="img/life_pentadecathlon.png"> : pentadecathlon</li>
+		<li><img src="img/life_pulsar.png"> : pulsar</li>
+	</ul>
+	
+	</div>
+	<a target="_blank" href="http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">reference</a>
+	
+</div><!-- lifegame -->
+</div><!-- game -->
