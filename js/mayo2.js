@@ -3,11 +3,11 @@ var m2_j = 5;
 function m2_init(){
 	j = m2_j;	//フィールドの大きさ指定
 	for(i=0;i<(j*j);i++){
-		document.write("<img style=cursor:pointer; onclick=m2_change("+i+",0,0); id=m2_"+i+" src=img/m_on.jpg title='opened'>");
-		if((i+1)%j==0) document.write("<br>");
+		$("#m2_game").append("<img style=cursor:pointer; onclick=m2_change("+i+",0,0); id=m2_"+i+" src=img/m_on.jpg title='opened'>");
+		if((i+1)%j==0) $("#m2_game").append("<br>");
 	}
 	for(i=0;i<(j*j);i++){
-		document.write("<input type=hidden value=0 id=m2_in"+i+">");
+		$("#m2_game").append("<input type=hidden value=0 id=m2_in"+i+">");
 	}
 	m2_reset(5);
 }

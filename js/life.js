@@ -13,7 +13,7 @@ var life_timer = null;
 //最初に実行
 function life_init(){
 	//インプットの初期化
-	for(k=1;k<=life_line;k++){
+	for(var k=1;k<=life_line;k++){
 		for(l=1;l<=life_column;l++){
 			number = 100*k + l;
 			life_inp[number] = 0;
@@ -21,40 +21,49 @@ function life_init(){
 	}
 	
 	//フィールドの描画
-	for(i=1;i<=life_line;i++){
-		document.write("<tr>");
-		for(j=1;j<=life_column;j++){
+	for(var i=1;i<=life_line;i++){
+		$("#life-gameArea").append("<tr>");
+		for(var j=1;j<=life_column;j++){
 			number = 100*i + j;
 			
-			document.write("<td style='border-width:0px;padding:0px;' id=life_c_",number,"><span onmouseout=life_white(",number,") onmouseover=life_color(",number,"); style=font-size:12px;cursor:default;><span onClick=life_turn(",number,"); id=life_nu_",number," style=display:inline;color:white>■</span></span></td>");
+			$("#life-gameArea").append("<td style='border-width:0px;padding:0px;' id=life_c_"+number+"><div onmouseout=life_white("+number+") onmouseover=life_color("+number+"); style=cursor:default;width:10px;height:10px;background-color:gray; onClick=life_turn("+number+"); id=life_nu_"+number+" data-flag=0></div></td>");
 		}
 	}
 
 }
 
 
-
+//マウスオンでの色付け
 function life_color(num){
-	c_num = "life_c_"+num;
-	document.getElementById(c_num).style.backgroundColor = "red";
+  var cell = $("#life_nu_"+num);
+  if(cell.data("flag")==0){
+    cell.css("background-color", "red");
+  }
+//	document.getElementById(c_num).style.backgroundColor = "red";
 }
 
 
 function life_white(num){
-	c_num = "life_c_"+num;
-	document.getElementById(c_num).style.backgroundColor = "transparent";
+  var cell = $("#life_nu_"+num);
+  if(cell.data("flag")==0){
+    cell.css("background-color", "gray");
+  }else{
+    cell.css("background-color", "black");
+  }
+  //	document.getElementById(c_num).style.backgroundColor = "transparent";
 }
-
 
 //色を変える
 function life_turn(num){
 	nu_num = "life_nu_"+num;
 	if(life_inp[num] == 1){
-		document.getElementById(nu_num).style.color = "white";
-		life_inp[num] = 0;
+//		document.getElementById(nu_num).style.color = "white";
+      $("#"+nu_num).css("background-color", "gray").data("flag", 0);
+	  life_inp[num] = 0;
 	}else{
-		document.getElementById(nu_num).style.color = "black";
-		life_inp[num] = 1;
+//		document.getElementById(nu_num).style.color = "black";
+      $("#"+nu_num).css("background-color", "black").data("flag", 1);
+	  life_inp[num] = 1;
 	}
 }
 
@@ -86,13 +95,15 @@ function life_exe(){
 			number = 100*i+j;
 			if(life_inp[number]==0){	//白ならば
 				if(counter == 3) {	//カウンタが3の時黒くする。
-					document.getElementById("life_nu_"+number).style.color = "black";
-					score++;
+				  //document.getElementById("life_nu_"+number).style.color = "black";
+                  $("#life_nu_"+number).css("background-color", "black").data("flag", 1);
+				  score++;
 				}
 			}else{	//黒ならば
 				if(counter != 3 && counter != 2){	//カウンタが2でも3でもないとき白くする。
-					document.getElementById("life_nu_"+number).style.color = "white";
-					score++;
+				  //document.getElementById("life_nu_"+number).style.color = "white";
+                  $("#life_nu_"+number).css("background-color", "gray").data("flag", 0);
+				  score++;
 				}
 			}
 		}
@@ -102,7 +113,7 @@ function life_exe(){
 	for(i=1;i<=life_line;i++){
 		for(j=1;j<=life_column;j++){
 			number = 100*i+j;
-			if(document.getElementById("life_nu_"+number).style.color == "black"){ //セルが黒ならば
+			if($("#life_nu_"+number).data("flag") == 1){ //セルが黒ならば
 				life_inp[number] = 1;	//インプットを1にする。
 			}else{	//それ以外→セルが白ならば
 				life_inp[number] = 0;	//インプットを0にする。

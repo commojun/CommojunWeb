@@ -13,22 +13,44 @@ div#mybody{
 #navi{
   	font-size: 1rem;
    	list-style-type: none;
-    width: 420px;
-    float : left;
+    float : right;
+    text-align : right;
+}
+
+div[data-menuButton]{
+    position: relative;
+    background-size : contain;
+    cursor : pointer;
+}
+
+div[data-menuButton] > div{
+    background-color : rgba(255,255,255,0.8);
+    position: absolute;
+    bottom : 0;
+    width: 100%;
 }
 
 #navi > div{
-    width : 100px;
-    height : 100px;
-    background-size : contain;
+    cursor: pointer;
+    width : 12vw;
+    height : 12vw;
+    max-width: 4rem;
+    max-height: 4rem;
     display: inline-block;
+    font-size: 0.8rem;
+    text-align: left;
+    overflow: hidden;
 }
 
+
 #currentContent > div{
-    width : 250px;
-    height : 250px;
-    float : right;
-    background-size : contain;
+    width : 24vw;
+    height : 24vw;
+    max-width: 10rem;
+    max-height: 10rem;
+    float : left;
+    font-size : 5vw;
+    text-align: center;
 }
 
 .welcome{
@@ -40,15 +62,19 @@ div#mybody{
 .work{
     background-image : url("../img/2_lv3.png");
 }
-.contact{
-    background-image : url("../img/3_lv3.png");
-}
 .publication{
     background-image : url("../img/4_lv2.png");
+}
+.appearances{
+    background-image : url("../img/3_lv3.png");
 }
 .link{
     background-image : url("../img/5_lv2.png");
 }
+.game{
+    background-image : url("../img/10_lv4.png");
+}
+
 
 div#message{
   	clear: both;
@@ -57,13 +83,8 @@ div#message{
 	border-style: solid;
 	border-radius: 0.5rem;
 	padding: 0.5rem;
-	font-size: 2rem;
+	font-size: 1rem;
 	line-height: 1.5;
-}
-  
-  
-div#block{
-  	height: 150px;
 }
   
 .pointer{
@@ -77,3 +98,24 @@ TABLE {
 TD {
     border-width: 2px; border-color: darkgreen; padding: 3px; border-style: solid;
 }
+
+
+/* profile */
+
+div#favorites img{
+    height : 3rem;
+    width : 3rem;
+}
+
+/* end of profile */
+
+/* game */
+
+div#mayo1 > img , div#m2_game > img {
+    width: 14vw;
+    height: 14vw;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+/* end of game */
