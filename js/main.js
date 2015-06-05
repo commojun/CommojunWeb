@@ -1,5 +1,5 @@
 //グローバル変数
-var counter = 0;
+var accesses = 0;
 var contents = ["welcome", "profile", "work", "publication", "appearances", "link", "game"];
 
 $(document).ready(function() {
@@ -12,7 +12,7 @@ $(document).ready(function() {
   }
   
   accessCount(function() {
-    getContent("#navi > div[data-id='"+firstPage+"']");
+    getContentByName(firstPage);
   });
   
   $("div[data-menuButton]").on("click", function() {
@@ -25,13 +25,14 @@ $(document).ready(function() {
 function accessCount(callback) {
   var url = "./script/access_counter.php";
   $.get(url, null, function(data) {
-    counter = data;
+    accesses = data;
     callback();
   });
 }
 
 //指定されたコンテンツを表示する
 function getContent(button){
+  $("#message").html("Loading ...");
   var content = $(button).data("id");
   location.href = "#"+content;
   $("div[data-menuButton]").css("opacity", 1);
@@ -45,10 +46,14 @@ function getContent(button){
   });
 }
 
+function getContentByName(content) {
+  getContent("#navi > div[data-id='"+content+"']");
+}
+
 ////////////////////////////// welcome //////////////////////////////
 var initFuncs = {
   welcome : function() {
-    $("#count").text(counter);
+    $("#count").text(accesses);
   }
 };
 

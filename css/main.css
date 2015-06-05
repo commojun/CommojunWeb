@@ -109,6 +109,28 @@ div#favorites img{
 
 /* end of profile */
 
+/* work */
+
+div.work-badges{
+    text-align: center;
+}
+
+div.work-badges > div{
+    vertical-align: middle;
+    display: inline-block;
+}
+
+img.apple-badge{
+    width: 164px;
+}
+
+img.google-badge{
+    width: 140px;
+    margin: 12px;
+}
+
+/* end of work */
+
 /* game */
 
 div#mayo1 > img , div#m2_game > img {
