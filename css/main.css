@@ -111,13 +111,42 @@ div#favorites img{
 
 /* work */
 
-div.work-badges{
+div.work-imgArea{
+    width:100%;
     text-align: center;
 }
 
-div.work-badges > div{
+div.work-imgArea div{
     vertical-align: middle;
-    display: inline-block;
+    display:inline-block;
+}
+
+div.work-imgArea p{
+    margin-top: 0;
+}
+
+.work-imgArea img[src*="logo"]{
+    width: 100%;
+    max-width: 500px;
+}
+
+.work-imgArea img[src*="lifelog"],
+.work-imgArea img[src*="context"]
+{
+    max-height: 230px;
+    max-width: 100%;
+}
+
+.work-imgArea img[src*="conmon"]{
+    max-height: 300px;
+    max-width: 30%;
+}
+
+.work-imgArea img[src*="evo"],
+.work-imgArea img[src*="various"]{
+    height: auto;
+    max-height: 125px;
+    max-width: 100%;
 }
 
 img.apple-badge{
