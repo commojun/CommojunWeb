@@ -1,6 +1,8 @@
 //グローバル変数
 var accesses = 0;
 var contents = ["welcome", "profile", "work", "publication", "appearances", "link", "game"];
+var initFuncs = {};
+
 
 $(document).ready(function() {
 
@@ -51,13 +53,9 @@ function getContentByName(content) {
 }
 
 ////////////////////////////// welcome //////////////////////////////
-var initFuncs = {
-  welcome : function() {
-    $("#count").text(accesses);
-  }
+initFuncs["welcome"] = function() {
+  $("#count").text(accesses);
+  
 };
 
-initFuncs["profile"] = function() {
-  console.log("profile");
-};
 
