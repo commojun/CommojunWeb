@@ -160,6 +160,22 @@ img.google-badge{
 
 /* end of work */
 
+/* appearances */
+
+div.stage{
+    border-bottom: rgb(0, 0, 0);
+    border-bottom-width: 4px;
+    border-bottom-style: double;
+}
+
+img.flyer{
+    max-width:300px;
+    width:100%;
+}
+
+
+/* end of appearances */
+
 /* game */
 
 div#mayo1 > img , div#m2_game > img {

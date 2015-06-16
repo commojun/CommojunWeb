@@ -18,6 +18,8 @@ if(isset($_GET['mode'])){
 }
 if($mode=="new"){
     newEntry();
+}else if($mode=="del"){
+    deleteInfo();
 }else{
     getInfo();
 }
@@ -25,7 +27,7 @@ if($mode=="new"){
 //新着情報の表示
 function getInfo(){
     //クエリー
-    $sql = "SELECT `registerdate`, `deadline`, `info` FROM `newinfo` WHERE `deadline` > CURRENT_DATE();";
+    $sql = "SELECT `_id`, `registerdate`, `deadline`, `info` FROM `newinfo` WHERE `deadline` > CURRENT_DATE();";
     $result = mysql_query($sql);
     if (!$result) {
         die('Error in query'.mysql_error());
@@ -43,7 +45,32 @@ function getInfo(){
 
 //新情報の登録
 function newEntry(){
-    echo "new";
+    //echo "new";
+    $sql = "INSERT INTO `newinfo` (`registerdate`, `deadline`, `info`) VALUES ("
+        ."'".$_GET['registerdate']."', "
+        ."'".$_GET['deadline']."', "
+        ."'".$_GET['info']."');";
+    $result = mysql_query($sql);
+    if (!$result) {
+        die('Error in query'.mysql_error());
+    }
+    //jsonとして出力
+    header('Content-type: application/json');
+    //header('Content-type: text/plain; charset=UTF-8'); 
+    echo json_encode($result);
+}
+
+//削除
+function deleteInfo(){
+    $sql = "DELETE FROM `newinfo` WHERE `_id` = ".$_GET['_id'].";";
+        $result = mysql_query($sql);
+    if (!$result) {
+        die('Error in query'.mysql_error());
+    }
+    //jsonとして出力
+    header('Content-type: application/json');
+    //header('Content-type: text/plain; charset=UTF-8'); 
+    echo json_encode($result);
 }
 
 ?>
