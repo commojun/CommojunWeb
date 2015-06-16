@@ -19,7 +19,7 @@ function submitNewInfo() {
     "info": $("#info").val()
   };
 
-  if(data.info == null) return false;
+  if(data.info == "") return false;
 
   var url = "./script/newinfo.php";
   $.get(url, data, function(data) {
