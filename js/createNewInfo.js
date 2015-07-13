@@ -36,7 +36,9 @@ function getRecentInfo() {
   var url = "./script/newinfo.php";
   $.get(url, null, function(data) {
     for(var i=0; i<data.length; i++){
-      $("#recentInfo").prepend("<p><input class=delete type=button value=X id="+data[i]._id+"><b>d:"+data[i].deadline+"</b><br>"+data[i].info+"</p>");
+      $("#recentInfo").prepend("<p><input class=delete type=button value=X id="+data[i]._id+"><b>"
+                               +"date: "+data[i].registerdate+"<br>"
+                               +"dead: "+data[i].deadline+"</b><br>"+data[i].info+"</p>");
     }
     $("input.delete").on("click", function() {
       deleteInfo($(this).attr("id"));
