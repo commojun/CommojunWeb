@@ -1,10 +1,10 @@
 <?php
-$link = mysql_connect('localhost', 'commojun', 'junpooooow');
+$link = mysql_connect('localhost', 'commojunweb', 'junpooooow');
 if(!$link){
     die('Error in connecting'.mysql_error());
 }
 
-$db_selected = mysql_select_db('commojun', $link);
+$db_selected = mysql_select_db('commojunweb', $link);
 if(!$db_selected){
     die('Error in select db'.mysql_error());
 }
