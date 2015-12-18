@@ -14,6 +14,7 @@ $(document).ready(function() {
   }
   
   accessCount(function() {
+    $("#count").text(accesses);
     getContentByName(firstPage);
   });
   
@@ -54,7 +55,20 @@ function getContentByName(content) {
 
 ////////////////////////////// welcome //////////////////////////////
 initFuncs["welcome"] = function() {
-  $("#count").text(accesses);
+  var url = "./script/newinfo.php";
+  $.getJSON(url, null, function(data) {
+    console.log(data);
+    for(var i=0; i<data.length; i++){
+      $("#welcome-newinfo")
+          .prepend("<dt>"+data[i].registerdate+"</dt>"
+                  +"<dd>"+data[i].info+"</dd>");
+    }
+    if(data.length == 0){
+      $("#welcome-newinfo")
+          .append("<dt>最新情報はありません．<br>No news</dt>");
+    }
+  });
+
   
 };
 

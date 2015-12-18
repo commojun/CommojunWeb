@@ -4,6 +4,7 @@ var gameContents = new Array("mayo1", "mayo2", "lifegame");
 initFuncs["game"] = function() {
 
   var maxColumn = Math.floor($("#message").innerWidth()/10 - 2);
+  if(maxColumn>50) maxColumn = 50;
   life_column = maxColumn;
   life_line = maxColumn;
   
