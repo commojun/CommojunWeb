@@ -13,25 +13,11 @@ $(document).ready(function() {
     firstPage = param;
   }
   
-  accessCount(function() {
-    $("#count").text(accesses);
-    getContentByName(firstPage);
-  });
-  
   $("div[data-menuButton]").on("click", function() {
     getContent(this);
   });
 
 });
-
-//アクセス数をカウントする
-function accessCount(callback) {
-  var url = "./script/access_counter.php";
-  $.get(url, null, function(data) {
-    accesses = data;
-    callback();
-  });
-}
 
 //指定されたコンテンツを表示する
 function getContent(button){
@@ -55,21 +41,7 @@ function getContentByName(content) {
 
 ////////////////////////////// welcome //////////////////////////////
 initFuncs["welcome"] = function() {
-  var url = "./script/newinfo.php";
-  $.getJSON(url, null, function(data) {
-    console.log(data);
-    for(var i=0; i<data.length; i++){
-      $("#welcome-newinfo")
-          .prepend("<dt>"+data[i].registerdate+"</dt>"
-                  +"<dd>"+data[i].info+"</dd>");
-    }
-    if(data.length == 0){
-      $("#welcome-newinfo")
-          .append("<dt>最新情報はありません．<br>No news</dt>");
-    }
-  });
 
-  
 };
 
 
